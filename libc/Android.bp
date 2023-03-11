@@ -120,21 +120,6 @@ cc_defaults {
     // lld complains about duplicate symbols in libcrt and libgcc. Suppress the
     // warning since this is intended right now.
     ldflags: ["-Wl,-z,muldefs"],
-
-    multilib: {
-            product_variables: {
-                malloc_zero_contents: {
-                    cflags: ["-DSCUDO_ZERO_CONTENTS"],
-                },
-                malloc_pattern_fill_contents: {
-                    cflags: ["-DSCUDO_PATTERN_FILL_CONTENTS"],
-                },
-                malloc_not_svelte: {
-                    cflags: ["-DUSE_SCUDO"],
-                },
-            },
-        },
-
     lto: {
         never: true,
     },
